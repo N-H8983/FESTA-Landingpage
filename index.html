@@ -443,5 +443,19 @@
 
     <!-- End of bodyEnd -->
     <script src="/mobile-fix.js"></script>
-</body>
+<script>
+(function(){
+  function ensureTextareaName(){
+    document.querySelectorAll('textarea.framer-form-input').forEach(function(ta){
+      if(!ta.getAttribute('name')) ta.setAttribute('name','Anything we should know');
+    });
+  }
+  ensureTextareaName();
+  window.addEventListener('load', ensureTextareaName);
+  setTimeout(ensureTextareaName, 500);
+  setTimeout(ensureTextareaName, 1500);
+  new MutationObserver(ensureTextareaName)
+    .observe(document.documentElement, {subtree:true, childList:true});
+})();
+</script></body>
 </html>

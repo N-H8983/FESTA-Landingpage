@@ -2,15 +2,11 @@
   "version": 2,
   "name": "festaapp-landing",
   "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+    { "src": "index.html",    "use": "@vercel/static" },
+    { "src": "mobile-fix.js", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/mobile-fix.js", "dest": "/mobile-fix.js" },
+    { "src": "/(.*)",          "dest": "/index.html" }
   ]
 }
